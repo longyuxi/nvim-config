@@ -387,19 +387,15 @@ nnoremap <leader>dp :<C-U>GdbStartPDB python -m pdb %<CR>
 """"""""""""""""""""""""""""""wilder.nvim settings""""""""""""""""""""""""""""""
 augroup wilder_init
   autocmd!
-  " CursorHold is suggested here: https: //github.com/gelguy/wilder.nvim/issues/89#issuecomment-934465957.
+  " CursorHold is suggested here: https://github.com/gelguy/wilder.nvim/issues/89#issuecomment-934465957.
   autocmd CursorHold * ++once call s:wilder_init()
 augroup END
 
 function! s:wilder_init() abort
   try
-    call wilder#enable_cmdline_enter()
-    set wildcharm=<Tab>
-    cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
-    cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
-
-    " only / and ? are enabled by default
-    call wilder#set_option('modes', ['/', '?', ':'])
+    call wilder#setup({
+          \ 'modes': [':', '/', '?'],
+          \ })
 
     call wilder#set_option('pipeline', [
           \   wilder#branch(
@@ -421,11 +417,12 @@ function! s:wilder_init() abort
     let l:hl = wilder#make_hl('WilderAccent', 'Pmenu', [{}, {}, {'foreground': '#f4468f'}])
     call wilder#set_option('renderer', wilder#popupmenu_renderer({
           \ 'highlighter': wilder#basic_highlighter(),
-          \ 'winblend': 5,
           \ 'max_height': 15,
           \ 'highlights': {
           \   'accent': l:hl,
           \ },
+          \ 'left': [' ', wilder#popupmenu_devicons(),],
+          \ 'right': [' ', wilder#popupmenu_scrollbar(),],
           \ 'apply_incsearch_fix': 0,
           \ }))
   catch /^Vim\%((\a\+)\)\=:E117/
