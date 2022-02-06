@@ -1,8 +1,8 @@
 " Save key strokes (now we do not need to press shift to enter command mode).
 " Vim-sneak has also mapped `;`, so using the below mapping will break the map
 " used by vim-sneak
-nnoremap ; :
-xnoremap ; :
+" nnoremap ; :
+" xnoremap ; :
 
 " Quicker way to open command window
 nnoremap q; q:
@@ -12,6 +12,10 @@ inoremap <c-u> <Esc>viwUea
 
 " Turn the current word into title case
 inoremap <c-t> <Esc>b~lea
+
+" Bufferline remaps
+nnoremap <silent> <leader>. :BufferLineCycleNext<CR>
+nnoremap <silent> <leader>, :BufferLineCyclePrev<CR>
 
 " Paste non-linewise text above or below current cursor,
 " see https://stackoverflow.com/a/1346777/6064933

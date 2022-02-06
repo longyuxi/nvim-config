@@ -8,6 +8,8 @@
 " Author: Jie-dong Hao
 " Email: jdhao@hotmail.com
 
+let mapleader = ','
+
 let g:config_files = [
       \ 'globals.vim',
       \ 'options.vim',
@@ -17,6 +19,10 @@ let g:config_files = [
       \ 'themes.vim'
       \ ]
 
+"       \ 'themes.vim'
+
 for s:fname in g:config_files
   execute printf('source %s/core/%s', stdpath('config'), s:fname)
 endfor
+
+let g:python3_host_prog = "/Users/longyuxi/miniconda3/bin/python"
