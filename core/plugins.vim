@@ -354,11 +354,11 @@ endif
 
 """"""""""""""""""""""""""""""firenvim settings""""""""""""""""""""""""""""""
 if exists('g:started_by_firenvim') && g:started_by_firenvim
-  if g:is_mac
-    set guifont=Iosevka\ Nerd\ Font:h18
-  else
-    set guifont=Consolas
-  endif
+  " if g:is_mac
+  "   set guifont=Iosevka\ Nerd\ Font:h18
+  " else
+  "   set guifont=Consolas
+  " endif
 
   " general config for firenvim
   let g:firenvim_config = {

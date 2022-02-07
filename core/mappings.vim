@@ -194,3 +194,10 @@ function! s:restore_cursor() abort
   silent! normal `y
   silent! delmarks y
 endfunction
+
+" word count for writing essays
+inoremap <C-L> <Esc>'a<S-V><S-G>g<C-G><Esc>`.i
+nnoremap <C-L> 'a<S-V><S-G>g<C-G><Esc>`.
+
+" keyboard shortcut for setting font in firenvim
+nnoremap <C-=> :set guifont=:h22 <CR>

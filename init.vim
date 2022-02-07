@@ -26,3 +26,5 @@ for s:fname in g:config_files
 endfor
 
 let g:python3_host_prog = "/Users/longyuxi/miniconda3/bin/python"
+
+autocmd FileType markdown set spell!
