@@ -124,6 +124,7 @@ nnoremap c "_c
 nnoremap C "_C
 nnoremap cc "_cc
 xnoremap c "_c
+nnoremap x "_x
 
 " Remove trailing whitespace characters
 nnoremap <silent> <leader><Space> :<C-U>StripTrailingWhitespace<CR>
