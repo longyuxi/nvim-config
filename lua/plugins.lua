@@ -216,11 +216,11 @@ require("packer").startup({
     -- Plug 'junegunn/vim-peekaboo'
     use({ "jdhao/better-escape.vim", event = { "InsertEnter" } })
 
-    if vim.g.is_mac then
-      use({ "lyokha/vim-xkbswitch", event = { "InsertEnter" } })
-    elseif vim.g.is_win then
-      use({ "Neur1n/neuims", event = { "InsertEnter" } })
-    end
+    -- if vim.g.is_mac then
+    --   use({ "lyokha/vim-xkbswitch", event = { "InsertEnter" } })
+    -- elseif vim.g.is_win then
+    --   use({ "Neur1n/neuims", event = { "InsertEnter" } })
+    -- end
 
     -- Syntax check and make
     -- use 'neomake/neomake'
@@ -282,6 +282,7 @@ require("packer").startup({
     -- Add indent object for vim (useful for languages like Python)
     use({"michaeljsmith/vim-indent-object", event = "VimEnter"})
 
+    use({'donRaphaco/neotex'})
     -- Only use these plugin on Windows and Mac and when LaTeX is installed
     -- if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
       -- use({ "lervag/vimtex", ft = { "tex" } })
@@ -349,6 +350,9 @@ require("packer").startup({
 
     -- The missing auto-completion for cmdline!
     use({"gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]]})
+
+    -- add header to documents
+    use { 'alpertuna/vim-header' }
 
     -- showing keybindings
     use {"folke/which-key.nvim",

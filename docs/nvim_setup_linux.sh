@@ -36,7 +36,7 @@ if [[ "$INSTALL_ANACONDA" = true ]]; then
     CONDA_NAME=Anaconda.sh
     CONDA_LINK="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda3-2021.05-Linux-x86_64.sh"
 else
-    CONDA_DIR=$HOME/tools/miniconda
+    CONDA_DIR=$HOME/miniconda3
     CONDA_NAME=Miniconda.sh
     CONDA_LINK="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Linux-x86_64.sh"
 fi
@@ -216,10 +216,10 @@ if [[ -d "$NVIM_CONFIG_DIR" ]]; then
     mv "$NVIM_CONFIG_DIR" "$NVIM_CONFIG_DIR.backup"
 fi
 
-git clone --depth=1 https://hub.fastgit.org/jdhao/nvim-config.git "$NVIM_CONFIG_DIR"
+git clone --depth=1 https://github.com/longyuxi/nvim-config "$NVIM_CONFIG_DIR"
 
 echo "Installing packer.nvim"
-git clone --depth=1 https://hub.fastgit.org/wbthomason/packer.nvim \
+git clone --depth=1 https://github.com/wbthomason/packer.nvim \
     ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 
 echo "Installing nvim plugins, please wait"

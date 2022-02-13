@@ -118,8 +118,8 @@ if g:is_win || g:is_mac
   let g:netrw_nogx = 1
 
   " Use another mapping for the open URL method
-  nmap ob <Plug>(openbrowser-smart-search)
-  xmap ob <Plug>(openbrowser-smart-search)
+  " nmap gx <Plug>(openbrowser-smart-search)
+  " xmap gx <Plug>(openbrowser-smart-search)
 endif
 
 """"""""""""""""""""""""""" vista settings """"""""""""""""""""""""""""""""""
@@ -354,11 +354,11 @@ endif
 
 """"""""""""""""""""""""""""""firenvim settings""""""""""""""""""""""""""""""
 if exists('g:started_by_firenvim') && g:started_by_firenvim
-  if g:is_mac
-    set guifont=Iosevka\ Nerd\ Font:h18
-  else
-    set guifont=Consolas
-  endif
+  " if g:is_mac
+  "   set guifont=Iosevka\ Nerd\ Font:h18
+  " else
+  "   set guifont=Consolas
+  " endif
 
   " general config for firenvim
   let g:firenvim_config = {

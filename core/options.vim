@@ -1,5 +1,8 @@
 scriptencoding utf-8
 
+" automatically change working directory to where the script is
+set autochdir
+
 " change fillchars for folding, vertical split, end of buffer, and message separator
 set fillchars=fold:\ ,vert:\│,eob:\ ,msgsep:‾
 
