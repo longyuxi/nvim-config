@@ -5,11 +5,7 @@ vim.g.package_home = fn.stdpath("data") .. "/site/pack/packer/"
 local packer_install_dir = vim.g.package_home .. "/opt/packer.nvim"
 
 local plug_url_format = ""
-if vim.g.is_linux then
-  plug_url_format = "https://hub.fastgit.org/%s"
-else
-  plug_url_format = "https://github.com/%s"
-end
+plug_url_format = "https://github.com/%s"
 
 local packer_repo = string.format(plug_url_format, "wbthomason/packer.nvim")
 local install_cmd = string.format("10split |term git clone --depth=1 %s %s", packer_repo, packer_install_dir)
@@ -46,18 +42,21 @@ require("packer").startup({
       use {"hrsh7th/cmp-emoji", after = 'nvim-cmp'}
     end
 
-    -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
-    use({ "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] })
+    if not vim.g.started_by_firenvim then
 
-    if vim.g.is_mac then
-      use({ "nvim-treesitter/nvim-treesitter", event = 'BufEnter', run = ":TSUpdate", config = [[require('config.treesitter')]] })
+      -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
+      use({ "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] })
+
+      if vim.g.is_mac then
+        use({ "nvim-treesitter/nvim-treesitter", event = 'BufEnter', run = ":TSUpdate", config = [[require('config.treesitter')]] })
+      end
+
+      -- Python indent (follows the PEP8 style)
+      use({ "Vimjas/vim-python-pep8-indent", ft = { "python" } })
+
+      -- Python-related text object
+      use({ "jeetsukumaran/vim-pythonsense", ft = { "python" } })
     end
-
-    -- Python indent (follows the PEP8 style)
-    use({ "Vimjas/vim-python-pep8-indent", ft = { "python" } })
-
-    -- Python-related text object
-    use({ "jeetsukumaran/vim-pythonsense", ft = { "python" } })
 
     use({"machakann/vim-swap", event = "VimEnter"})
 
@@ -174,10 +173,13 @@ require("packer").startup({
       use({"liuchengxu/vista.vim", cmd = "Vista"})
     end
 
-    -- Snippet engine and snippet template
-    use({"SirVer/ultisnips", event = 'InsertEnter'})
-    use({ "honza/vim-snippets", after = 'ultisnips'})
+    if not vim.g.started_by_firenvim then
 
+      -- Snippet engine and snippet template
+      use({"SirVer/ultisnips", event = 'InsertEnter'})
+      use({ "honza/vim-snippets", after = 'ultisnips'})
+
+    end
     -- Automatic insertion and deletion of a pair of characters
     use({"Raimondi/delimitMate", event = "InsertEnter"})
 
@@ -274,19 +276,25 @@ require("packer").startup({
     use({"wellle/targets.vim", event = "VimEnter"})
 
     -- Plugin to manipulate character pairs quickly
-    -- use 'tpope/vim-surround'
-    use({"machakann/vim-sandwich", event = "VimEnter"})
+    use 'tpope/vim-surround'
+    -- use({"machakann/vim-sandwich", event = "VimEnter"})
 
     -- Add indent object for vim (useful for languages like Python)
     use({"michaeljsmith/vim-indent-object", event = "VimEnter"})
 
     -- Only use these plugin on Windows and Mac and when LaTeX is installed
-    if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
-      use({ "lervag/vimtex", ft = { "tex" } })
+    -- if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
+      -- use({ "lervag/vimtex", ft = { "tex" } })
 
       -- use {'matze/vim-tex-fold', ft = {'tex', }}
       -- use 'Konfekt/FastFold'
-    end
+    -- end
+    
+    use({ "lervag/vimtex" })
+
+    -- use({"emakman/neovim-latex-previewer"})
+    use({"donRaphaco/neotex"})
+
 
     -- Since tmux is only available on Linux and Mac, we only enable these plugins
     -- for Linux and Mac
@@ -318,14 +326,14 @@ require("packer").startup({
     use({ "cespare/vim-toml", ft = { "toml" }, branch = "main" })
 
     -- Edit text area in browser using nvim
-    if vim.g.is_win or vim.g.is_mac then
-      use({
-        "glacambre/firenvim",
-        run = function() fn["firenvim#install"](0) end,
-        opt = true,
-        setup = [[vim.cmd('packadd firenvim')]],
-      })
-    end
+    -- if vim.g.is_win or vim.g.is_mac then
+    --   use({
+    --     "glacambre/firenvim",
+    --     run = function() fn["firenvim#install"](0) end,
+    --     opt = true,
+    --     setup = [[vim.cmd('packadd firenvim')]],
+    --   })
+    -- end
 
     -- Debugger plugin
     if vim.g.is_win or vim.g.is_linux then
@@ -348,6 +356,11 @@ require("packer").startup({
     config = function()
       vim.defer_fn(function() require('config.which-key') end, 2000)
     end
+    }
+
+    use {
+          'glacambre/firenvim',
+              run = function() vim.fn['firenvim#install'](0) end 
     }
 
     -- show and trim trailing whitespaces
