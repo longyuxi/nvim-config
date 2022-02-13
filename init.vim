@@ -26,5 +26,6 @@ for s:fname in g:config_files
 endfor
 
 let g:python3_host_prog = "/Users/longyuxi/miniconda3/bin/python"
+let g:neotex_enabled = 2
 
 autocmd FileType markdown set spell
