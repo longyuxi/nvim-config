@@ -202,3 +202,6 @@ nnoremap <C-L> 'a<S-V><S-G>g<C-G><Esc>`.
 
 " keyboard shortcut for setting font in firenvim
 nnoremap <C-=> :set guifont=:h22 <CR>
+
+" removing word
+inoremap <C-H> <C-W>

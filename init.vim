@@ -25,6 +25,9 @@ endfor
 
 if g:is_mac
   let g:python3_host_prog = "/Users/longyuxi/miniconda3/bin/python"
+else
+  let g:python3_host_prog = "/home/longyuxi/miniconda3/bin/python"
+
 endif
 
 let g:neotex_enabled = 2
