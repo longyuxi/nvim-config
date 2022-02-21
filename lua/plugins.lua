@@ -46,6 +46,9 @@ require("packer").startup({
 
       -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
       use({ "neovim/nvim-lspconfig", after = "cmp-nvim-lsp", config = [[require('config.lsp')]] })
+      use {
+        'williamboman/nvim-lsp-installer',
+        }
 
       if vim.g.is_mac then
         use({ "nvim-treesitter/nvim-treesitter", event = 'BufEnter', run = ":TSUpdate", config = [[require('config.treesitter')]] })
@@ -282,7 +285,7 @@ require("packer").startup({
     -- Add indent object for vim (useful for languages like Python)
     use({"michaeljsmith/vim-indent-object", event = "VimEnter"})
 
-    use({'donRaphaco/neotex'})
+    -- use({'donRaphaco/neotex'})
     -- Only use these plugin on Windows and Mac and when LaTeX is installed
     -- if vim.g.is_win or vim.g.is_mac and utils.executable("latex") then
       -- use({ "lervag/vimtex", ft = { "tex" } })
@@ -290,13 +293,20 @@ require("packer").startup({
       -- use {'matze/vim-tex-fold', ft = {'tex', }}
       -- use 'Konfekt/FastFold'
     -- end
-    
+
     use({ "lervag/vimtex" })
 
     -- use({"emakman/neovim-latex-previewer"})
     use({"donRaphaco/neotex"})
 
-
+    -- Tree browser
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+          'kyazdani42/nvim-web-devicons', -- optional, for file icon
+        },
+        config = function() require'nvim-tree'.setup {} end
+    }
     -- Since tmux is only available on Linux and Mac, we only enable these plugins
     -- for Linux and Mac
     if utils.executable("tmux") then
