@@ -36,3 +36,6 @@ autocmd FileType markdown set spell
 " autocmd VimEnter * nmap <C-/> <Plug>Commentary
 nmap <C-_> gcc
 vmap <C-_> gc
+
+nmap <leader>, :BufferLineCycleNext<CR>
+nmap <leader>. :BufferLineCyclePrev<CR>
