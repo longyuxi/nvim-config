@@ -372,6 +372,8 @@ require("packer").startup({
     end
     }
 
+    -- use { 'vigoux/templar.nvim' }
+
     use {
           'glacambre/firenvim',
               run = function() vim.fn['firenvim#install'](0) end 
