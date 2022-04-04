@@ -36,6 +36,10 @@ autocmd FileType markdown set spell
 " autocmd VimEnter * nmap <C-/> <Plug>Commentary
 nmap <C-_> gcc
 vmap <C-_> gc
+" imap ]] ]]<Esc>O
 
 nmap <leader>, :BufferLineCycleNext<CR>
 nmap <leader>. :BufferLineCyclePrev<CR>
+
+" templates
+autocmd BufNewFile  *.tex	0r ~/.config/nvim/templates/latex-template.tex
