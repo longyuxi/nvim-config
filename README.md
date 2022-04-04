@@ -26,6 +26,14 @@
 </p>
 </div>
 
+# Additional commands and shortcuts defined by Jaden
+
+- <C-=> to set guifont to h22 (for firenvim). `core/mappings.vim`
+- Word count for writing essays. Use `ma` to set mark 'a', which will then be used to perform word count through <C-L> to the end of the document. `core/mappings.vim`
+- Cycle through BufferLine with <leader>, and <leader>.: `init.vim`
+- Comment out lines with Ctrl+/ (<C-_>): `init.vim`
+- Open nvim-tree through <leader>t and refresh through <leader>r: `core/plugins.vim`
+
 # Introduction
 
 This repo hosts my Nvim configuration for all the platforms I am using (Linux,
