@@ -10,7 +10,6 @@ snippet img "Centered image"
 \begin{center}
 \includegraphics[scale=$2]{$1}
 \end{center}
-$0
 endsnippet
 
 snippet bf "Boldface"
@@ -19,4 +18,16 @@ endsnippet
 
 snippet it "Italicized"
 \textit{$1}
+endsnippet
+
+snippet env "begin{} / end{}" bi
+\begin{$1}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
+snippet code "code block" bi
+\begin{verbatim}
+	${1:${VISUAL}}
+\end{verbatim}
 endsnippet
