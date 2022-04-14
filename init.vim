@@ -33,6 +33,7 @@ endif
 let g:neotex_enabled = 2
 
 autocmd FileType markdown set spell
+autocmd FileType tex set synmaxcol=0
 " autocmd VimEnter * nmap <C-/> <Plug>Commentary
 nmap <C-_> gcc
 vmap <C-_> gc
