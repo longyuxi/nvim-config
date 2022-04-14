@@ -42,9 +42,13 @@ vmap <C-_> gc
 nmap <leader>, :BufferLineCycleNext<CR>
 nmap <leader>. :BufferLineCyclePrev<CR>
 
-" for LaTeX editing - open current file and open the output pdf file
-nmap <leader>o :!gnome-terminal -- nvim %:p<CR>:!xdg-open %:p:r.pdf<CR>
-" nmap <leader>o :!gnome-terminal -- nvim %:p<CR>
+" for LaTeX editing -  open the output pdf file. On Linux, also open the latex
+" file in a new terminal
+if g:is_mac
+  nmap <leader>o :!open %:p:r.pdf<CR><CR>
+else
+  nmap <leader>o :!gnome-terminal -- nvim %:p<CR>:!xdg-open %:p:r.pdf<CR>
+endif
 
 " templates
 autocmd BufNewFile  *.tex	0r ~/.config/nvim/templates/latex-template.tex
