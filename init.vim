@@ -47,7 +47,7 @@ nmap <leader>. :BufferLineCyclePrev<CR>
 if g:is_mac
   nmap <leader>o :!open %:p:r.pdf<CR><CR>
 else
-  nmap <leader>o :!gnome-terminal -- nvim %:p<CR>:!xdg-open %:p:r.pdf<CR>
+  nmap <leader>o :!gnome-terminal -- nvim %:p<CR>:!xdg-open %:p:r.pdf<CR><CR>
 endif
 
 " templates

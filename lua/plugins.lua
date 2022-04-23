@@ -364,6 +364,10 @@ require("packer").startup({
     -- add header to documents
     use { 'alpertuna/vim-header' }
 
+    use { 'vim-scripts/argtextobj.vim' }
+
+    use { 'dbakker/vim-paragraph-motion' }
+
     -- showing keybindings
     use {"folke/which-key.nvim",
     event = "VimEnter",

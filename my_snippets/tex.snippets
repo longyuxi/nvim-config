@@ -8,16 +8,16 @@ endsnippet
 
 snippet img "Centered image"
 \begin{center}
-\includegraphics[scale=$2]{$1}
+	\includegraphics[width=0.8\textwidth]{$1}
 \end{center}
 endsnippet
 
 snippet bf "Boldface"
-\textbf{$1}
+\textbf{${1:${VISUAL}}}
 endsnippet
 
 snippet it "Italicized"
-\textit{$1}
+\textit{${1:${VISUAL}}}
 endsnippet
 
 snippet env "begin{} / end{}" bi
