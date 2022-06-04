@@ -119,7 +119,7 @@ require("packer").startup({
     use({"lifepillar/vim-gruvbox8", opt = true})
     use({"navarasu/onedark.nvim", opt = true})
     use({"sainnhe/edge", opt = true})
-    use({"sainnhe/sonokai", opt = true})
+    -- use({"sainnhe/sonokai", opt = true})
     use({"sainnhe/gruvbox-material", opt = true})
     use({"shaunsingh/nord.nvim", opt = true})
     use({"NTBBloodbath/doom-one.nvim", opt = true})
@@ -255,16 +255,8 @@ require("packer").startup({
     -- Markdown JSON header highlight plugin
     use({ "elzr/vim-json", ft = { "json", "markdown" } })
 
-    -- Markdown previewing (only for Mac and Windows)
-    if vim.g.is_win or vim.g.is_mac then
-      use({
-        "iamcco/markdown-preview.nvim",
-        run = function()
-          fn["mkdp#util#install"]()
-        end,
-        ft = { "markdown" },
-      })
-    end
+    -- Markdown previewing
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
     use({'folke/zen-mode.nvim', cmd = 'ZenMode', config = [[require('config.zen-mode')]]})
 

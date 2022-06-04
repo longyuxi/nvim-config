@@ -33,6 +33,7 @@ endif
 let g:neotex_enabled = 2
 
 autocmd FileType markdown set spell
+autocmd FileType markdown nmap <buffer> <F9> <plug>MarkdownPreview
 autocmd FileType tex set synmaxcol=0
 " autocmd VimEnter * nmap <C-/> <Plug>Commentary
 nmap <C-_> gcc
@@ -52,3 +53,4 @@ endif
 
 " templates
 autocmd BufNewFile  *.tex	0r ~/.config/nvim/templates/latex-template.tex
+let g:neotex_pdflatex_alternative = 'xelatex'
