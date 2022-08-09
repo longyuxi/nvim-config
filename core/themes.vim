@@ -59,15 +59,17 @@ endfunction
 let s:theme2dir = {
       \ 'gruvbox8' : 'vim-gruvbox8',
       \ 'onedark': 'onedark.nvim',
-      \ 'edge' : 'edge',
-      \ 'sonokai': 'sonokai',
-      \ 'gruvbox_material': 'gruvbox-material',
       \ 'nord': 'nord.nvim',
       \ 'doom_one': 'doom-one.nvim',
-      \ 'everforest' :'everforest',
       \ 'nightfox': 'nightfox.nvim',
       \ 'kanagawa': 'kanagawa.nvim',
       \ }
+
+" unused themes
+      " \ 'edge' : 'edge',
+      " \ 'gruvbox_material': 'gruvbox-material',
+      " \ 'everforest' :'everforest',
+"
 
 let s:theme = utils#RandElement(keys(s:theme2dir))
 let s:colorscheme_func = printf('s:theme_setup_dict.%s()', s:theme)

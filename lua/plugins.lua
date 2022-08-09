@@ -297,7 +297,7 @@ require("packer").startup({
         requires = {
           'kyazdani42/nvim-web-devicons', -- optional, for file icon
         },
-        config = function() require'nvim-tree'.setup {} end
+        -- config = function() require'nvim-tree'.setup {} end
     }
     -- Since tmux is only available on Linux and Mac, we only enable these plugins
     -- for Linux and Mac

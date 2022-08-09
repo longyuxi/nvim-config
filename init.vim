@@ -54,3 +54,4 @@ endif
 " templates
 autocmd BufNewFile  *.tex	0r ~/.config/nvim/templates/latex-template.tex
 let g:neotex_pdflatex_alternative = 'xelatex'
+let g:neotex_pdflatex_add_options = '-shell-escape'

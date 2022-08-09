@@ -12,7 +12,14 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{cite}
+\usepackage{csquotes}
 \usepackage{hyperref}
+\usepackage{listings}
+\lstset{
+  columns=fullflexible,
+  breaklines=true
+}
+\usepackage{minted}
 \usepackage[
 backend=biber,
 style=alphabetic,
@@ -25,6 +32,9 @@ sorting=ynt
 \newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
 \newcommand{\change}[1]{{\color{red} #1}}
 \newcommand{\todo}[1]{{\color{red} TODO: #1}}
+\renewcommand{\vec}[1]{\textbf{#1}}
+\renewcommand{\code}[1]{\texttt{#1}}
+\newenvironment{codeblock}{\VerbatimEnvironment \begin{minted}[linenos,breaklines]{python}}{\end{minted}}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
@@ -34,7 +44,9 @@ sorting=ynt
 \definecolor{darkred}{rgb}{0.8, 0.0, 0.0}
 \definecolor{darkgreen}{rgb}{0.0, 0.8, 0.0}
 
+\lstset{basicstyle=\ttfamily}
 
+%% Math commands
 \newcommand{\abs}[1] {\left|{#1}\right|}
 % \newcommand{\gcd}[1] {gcd($\#1$)}
 \newcommand{\R}{\mathbb{R}}
@@ -44,9 +56,10 @@ sorting=ynt
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1.5em}
 
-\begin{document}
- \pagestyle{fancy} \lhead{Whatever project this is} \rhead{Jaden Long (yl708), Whatever class this is}
 
- \section{hi}
+\begin{document}
+\pagestyle{fancy} \lhead{Whatever project this is} \rhead{Jaden Long (yl708), Whatever class this is}
+
+\section{hi}
 
 \end{document}
