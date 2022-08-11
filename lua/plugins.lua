@@ -375,6 +375,9 @@ require("packer").startup({
               run = function() vim.fn['firenvim#install'](0) end 
     }
 
+    -- For some unknown reason, I could not get VimIM to work
+    -- use { 'vim-scripts/VimIM' }
+
     -- show and trim trailing whitespaces
     use {'jdhao/whitespace.nvim', event = 'VimEnter'}
   end,
