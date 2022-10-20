@@ -1,5 +1,6 @@
 
 \documentclass[14pt]{extarticle}
+% \documentclass[10pt]{article}
 \usepackage[letterpaper,left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
 \usepackage[normalem]{ulem}
 % \usepackage{mathptmx}%%Font -Postscript Times
@@ -14,6 +15,7 @@
 \usepackage{cite}
 \usepackage{csquotes}
 \usepackage{hyperref}
+\usepackage{tikz}
 \usepackage{listings}
 \lstset{
   columns=fullflexible,
@@ -28,10 +30,29 @@ sorting=ynt
 \addbibresource{citations.bib}
 \graphicspath{ {./imgs/} }
 
+% Draws perfect circle around text. Credit: https://tex.stackexchange.com/a/7045/268372
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% For drawing lines below equations. Credit: https://tex.stackexchange.com/a/9472/268372
+\newsavebox\MBox
+\newcommand\Cline[2][blue]{{\sbox\MBox{$#2$}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-2.0\dp\MBox]{\wd\MBox}{0.5pt}}}
+
 %%% For horizontal line with text
 \newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
+
+% For in-line comments
 \newcommand{\change}[1]{{\color{red} #1}}
 \newcommand{\todo}[1]{{\color{red} TODO: #1}}
+
+% For progress tracker
+\newcommand{\ns}{{\color{red} Not Started}}
+\newcommand{\ip}{{\color{orange} In Progress (Stuck)}}
+\newcommand{\td}{{\color{blue} In Progress (To-Do)}}
+\newcommand{\fin}{{\color{green} Finished}}
+\newcommand{\qm}{{\color{violet} Finshed, But In Doubt}}
+
 \renewcommand{\vec}[1]{\textbf{#1}}
 \renewcommand{\code}[1]{\texttt{#1}}
 \newenvironment{codeblock}{\VerbatimEnvironment \begin{minted}[linenos,breaklines]{python}}{\end{minted}}
@@ -51,6 +72,10 @@ sorting=ynt
 % \newcommand{\gcd}[1] {gcd($\#1$)}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\H}{\mathbb{H}}
+\newcommand{\contradiction}{\Rightarrow\!\Leftarrow}
+\newcommand{\normal}{\trianglelefteq}
 \renewcommand{\theenumi}{(\alph{enumi})}
 \renewcommand{\baselinestretch}{1.3}
 \setlength{\parindent}{0em}
@@ -59,6 +84,14 @@ sorting=ynt
 
 \begin{document}
 \pagestyle{fancy} \lhead{Whatever project this is} \rhead{Jaden Long (yl708), Whatever class this is}
+
+% \textbf{Progress tracker:}
+
+%     \begin{tabular}{c | c}
+%         \hline
+%         1 & \ns \\ \hline
+%     \end{tabular}
+
 
 \section{hi}
 
