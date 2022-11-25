@@ -40,3 +40,14 @@ snippet code "code block" bi
 	${1:${VISUAL}}
 \end{verbatim}
 endsnippet
+
+snippet {} "Set notation"
+\left\{ ${1:${VISUAL}} \right\} $0
+endsnippet
+
+snippet frame "Frame environment (Beamer)" bi
+\begin{frame}{${1:Frame Title}}{${2:Frame Subtitle}}
+	$3
+\end{frame}
+$0
+endsnippet
