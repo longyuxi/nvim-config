@@ -38,6 +38,8 @@ autocmd FileType tex set synmaxcol=0
 " autocmd VimEnter * nmap <C-/> <Plug>Commentary
 nmap <C-_> gcc
 vmap <C-_> gc
+nmap <C-/> gcc
+vmap <C-/> gc
 " imap ]] ]]<Esc>O
 
 nmap <leader>, :BufferLineCycleNext<CR>
