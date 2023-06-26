@@ -38,7 +38,16 @@ autocmd FileType tex set synmaxcol=0
 " autocmd VimEnter * nmap <C-/> <Plug>Commentary
 nmap <C-_> gcc
 vmap <C-_> gc
+nmap <C-/> gcc
+vmap <C-/> gc
 " imap ]] ]]<Esc>O
+
+" https://stackoverflow.com/a/49525323 De-indenting and indenting a pasted
+" block
+nnoremap <leader>[ `[V`]<
+nnoremap <leader>] `[V`]>
+
+nnoremap gp `[v`]
 
 nmap <leader>, :BufferLineCycleNext<CR>
 nmap <leader>. :BufferLineCyclePrev<CR>
@@ -48,7 +57,8 @@ nmap <leader>. :BufferLineCyclePrev<CR>
 if g:is_mac
   nmap <leader>o :!open %:p:r.pdf<CR><CR>
 else
-  nmap <leader>o :!gnome-terminal -- nvim %:p<CR>:!xdg-open %:p:r.pdf<CR><CR>
+  " nmap <leader>o :!gnome-terminal -- nvim.appimage %:p<CR>:!xdg-open %:p:r.pdf<CR><CR>
+  nmap <leader>o :!xdg-open %:p:r.pdf &<CR><CR>
 endif
 
 " templates
