@@ -1,6 +1,6 @@
 # download neovim as non-admin
 mkdir -p ~/bin/
-wget https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage -O ~/bin/nvim
+wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -O ~/bin/nvim
 chmod +x ~/bin/nvim
 
 # Add ~/bin to path if not already there
